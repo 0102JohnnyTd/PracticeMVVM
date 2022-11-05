@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CCC6DE6291506890091865E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DE5291506890091865E /* API.swift */; };
+		1CCC6DE829163F950091865E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DE729163F950091865E /* ImageDownloader.swift */; };
 		1CF41E622913A21300ED7628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E612913A21300ED7628 /* AppDelegate.swift */; };
 		1CF41E642913A21300ED7628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E632913A21300ED7628 /* SceneDelegate.swift */; };
 		1CF41E662913A21300ED7628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E652913A21300ED7628 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1CCC6DE5291506890091865E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1CCC6DE729163F950091865E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		1CF41E5E2913A21300ED7628 /* PracticeMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF41E612913A21300ED7628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CF41E632913A21300ED7628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				1CF41E762913EA4E00ED7628 /* User.swift */,
 				1CCC6DE5291506890091865E /* API.swift */,
+				1CCC6DE729163F950091865E /* ImageDownloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				1CF41E662913A21300ED7628 /* ViewController.swift in Sources */,
 				1CF41E622913A21300ED7628 /* AppDelegate.swift in Sources */,
 				1CF41E642913A21300ED7628 /* SceneDelegate.swift in Sources */,
+				1CCC6DE829163F950091865E /* ImageDownloader.swift in Sources */,
 				1CCC6DE6291506890091865E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
