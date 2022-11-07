@@ -9,7 +9,6 @@ import UIKit
 import SafariServices
 
 final class UserListViewController: UIViewController {
-
     fileprivate var viewModel: UserListViewModel!
     fileprivate var tableView: UITableView!
     fileprivate var refreshControl: UIRefreshControl!
@@ -19,7 +18,7 @@ final class UserListViewController: UIViewController {
         setUpTableView()
         setUpRefreshControl()
         setUpViewModel()
-        // Do any additional setup after loading the view.
+        viewModel.fetchUsers()
     }
 
     // TableViewを生成し、画面に表示する設定
@@ -46,23 +45,23 @@ final class UserListViewController: UIViewController {
     // UserListViewModelを生成
     private func setUpViewModel() {
         viewModel = UserListViewModel()
-        viewModel.stateDidUpdate = { [self] state in
+        viewModel.stateDidUpdate = { [weak self] state in
             switch state {
             // 通信中はtableViewを操作不可にする
             case .loading:
-                tableView.isUserInteractionEnabled = false
+                self?.tableView.isUserInteractionEnabled = false
                 break
             // 通信完了後はtableViewを操作可能にし、更新を行う。
             case .finish:
-                tableView.isUserInteractionEnabled = true
-                tableView.reloadData()
-                refreshControl.endRefreshing()
+                self?.tableView.isUserInteractionEnabled = true
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
                 break
             // エラーが発生した場合はエラーを知らせるAlertを表示
             case .error(let error):
-                tableView.isUserInteractionEnabled = true
-                refreshControl.endRefreshing()
-                showErrorAlert(error: error)
+                self?.tableView.isUserInteractionEnabled = true
+                self?.refreshControl.endRefreshing()
+                self?.showErrorAlert(error: error)
                 break
             }
         }
@@ -79,7 +78,6 @@ final class UserListViewController: UIViewController {
         let webVC = SFSafariViewController(url: userURL)
         navigationController?.pushViewController(webVC, animated: true)
     }
-
 }
 
 extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -117,6 +115,7 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
 
     // Cellをタップ時、各ユーザーの詳細ページに遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function)
         let cellViewModel = viewModel.cellModels[indexPath.row]
         let userURL = cellViewModel.webURL
         showUserPage(userURL: userURL)

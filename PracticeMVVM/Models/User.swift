@@ -11,7 +11,7 @@ import Foundation
    // ❓それぞれのkeyが複数回使用されない可能性が高い本ケースにおいては本当に必要なのだろうか
 private enum Attribute {
     static let id = "id"
-    static let name = "name"
+    static let name = "login"
     static let iconURL = "avatar_url"
     static let webURL = "html_url"
 }
