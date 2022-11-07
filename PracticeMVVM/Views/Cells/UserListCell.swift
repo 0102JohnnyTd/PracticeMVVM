@@ -14,6 +14,9 @@ final class UserListCell: UITableViewCell {
     // ユーザー名を表示
     private var nameLabel: UILabel!
 
+    // セルのIDを保持
+    static let identifier = String(describing: UserListCell.self)
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpIconView()
@@ -56,9 +59,19 @@ final class UserListCell: UITableViewCell {
         nameLabel.frame = CGRect(x: iconView.frame.maxX + 15, y: iconView.frame.origin.y, width: contentView.frame.width - iconView.frame.maxX - 15 * 2, height: 15)
     }
 
-    // 取得したユーザーデータをオブジェクトにセット
-    private func configure(name: String, icon: UIImage) {
+    // 取得したnameデータをnameLabelにセット
+    func setName(name: String) {
         nameLabel.text = name
+    }
+
+    // 取得したimageデータをiconViewにセット
+    func setImage(icon: UIImage) {
         iconView.image = icon
     }
+
+    // ↑kf導入すれば一つのメソッドで収まるかも..
+//    private func configure(name: String, icon: UIImage) {
+//        nameLabel.text = name
+//        iconView.image = icon
+//    }
 }
