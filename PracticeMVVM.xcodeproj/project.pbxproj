@@ -12,6 +12,7 @@
 		1CCC6DEB29169F6D0091865E /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DEA29169F6D0091865E /* UserListViewModel.swift */; };
 		1CCC6DED2916A1870091865E /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DEC2916A1870091865E /* UserCellViewModel.swift */; };
 		1CCC6DEF291712F90091865E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DEE291712F90091865E /* UIImage+.swift */; };
+		1CCC6DF2291844110091865E /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DF1291844110091865E /* UserListCell.swift */; };
 		1CF41E622913A21300ED7628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E612913A21300ED7628 /* AppDelegate.swift */; };
 		1CF41E642913A21300ED7628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E632913A21300ED7628 /* SceneDelegate.swift */; };
 		1CF41E662913A21300ED7628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E652913A21300ED7628 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		1CCC6DEA29169F6D0091865E /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		1CCC6DEC2916A1870091865E /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		1CCC6DEE291712F90091865E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		1CCC6DF1291844110091865E /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		1CF41E5E2913A21300ED7628 /* PracticeMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF41E612913A21300ED7628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CF41E632913A21300ED7628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				1CCC6DF0291712FE0091865E /* Extensions */,
 				1CF41E782913EA5900ED7628 /* Models */,
 				1CCC6DE9291699630091865E /* ViewModels */,
+				1CCC6DF1291844110091865E /* UserListCell.swift */,
 				1CF41E652913A21300ED7628 /* ViewController.swift */,
 				1CF41E672913A21300ED7628 /* Main.storyboard */,
 				1CF41E6A2913A21600ED7628 /* Assets.xcassets */,
@@ -209,6 +212,7 @@
 				1CCC6DED2916A1870091865E /* UserCellViewModel.swift in Sources */,
 				1CCC6DE829163F950091865E /* ImageDownloader.swift in Sources */,
 				1CCC6DE6291506890091865E /* API.swift in Sources */,
+				1CCC6DF2291844110091865E /* UserListCell.swift in Sources */,
 				1CCC6DEF291712F90091865E /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
