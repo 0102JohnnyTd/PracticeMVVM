@@ -13,6 +13,7 @@
 		1CCC6DED2916A1870091865E /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DEC2916A1870091865E /* UserCellViewModel.swift */; };
 		1CCC6DEF291712F90091865E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DEE291712F90091865E /* UIImage+.swift */; };
 		1CCC6DF2291844110091865E /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DF1291844110091865E /* UserListCell.swift */; };
+		1CCC6DF4291938610091865E /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC6DF3291938610091865E /* UserListViewController.swift */; };
 		1CF41E622913A21300ED7628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E612913A21300ED7628 /* AppDelegate.swift */; };
 		1CF41E642913A21300ED7628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E632913A21300ED7628 /* SceneDelegate.swift */; };
 		1CF41E662913A21300ED7628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF41E652913A21300ED7628 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		1CCC6DEC2916A1870091865E /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		1CCC6DEE291712F90091865E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		1CCC6DF1291844110091865E /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		1CCC6DF3291938610091865E /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		1CF41E5E2913A21300ED7628 /* PracticeMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF41E612913A21300ED7628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CF41E632913A21300ED7628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				1CCC6DE9291699630091865E /* ViewModels */,
 				1CCC6DF1291844110091865E /* UserListCell.swift */,
 				1CF41E652913A21300ED7628 /* ViewController.swift */,
+				1CCC6DF3291938610091865E /* UserListViewController.swift */,
 				1CF41E672913A21300ED7628 /* Main.storyboard */,
 				1CF41E6A2913A21600ED7628 /* Assets.xcassets */,
 				1CF41E6C2913A21600ED7628 /* LaunchScreen.storyboard */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CF41E772913EA4E00ED7628 /* User.swift in Sources */,
+				1CCC6DF4291938610091865E /* UserListViewController.swift in Sources */,
 				1CF41E662913A21300ED7628 /* ViewController.swift in Sources */,
 				1CCC6DEB29169F6D0091865E /* UserListViewModel.swift in Sources */,
 				1CF41E622913A21300ED7628 /* AppDelegate.swift in Sources */,

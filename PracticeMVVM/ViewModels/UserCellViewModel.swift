@@ -31,7 +31,7 @@ final class UserCellViewModel {
     private var isLoading = false
 
     // 通信で取得したユーザー名を返す
-    var nickName: String {
+    var userName: String {
         user.name
     }
 
@@ -65,6 +65,3 @@ final class UserCellViewModel {
         }
     }
 }
-
-
-
