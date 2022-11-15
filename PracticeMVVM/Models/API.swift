@@ -33,9 +33,50 @@ final class API {
     // 通信用のURL
     private let usersURL = "https://api.github.com/users"
 
-    // API通信を実行してからGitHubのユーザーデータを取得
-    func fetchUsers(success: @escaping ([User]) -> Void, failure: @escaping (Error) -> Void) {
-        // ❓ハードコーディングの観点からURLを格納したプロパティを定義して指定してるが、ここでしか使用しないならやはり不要な気も。。
+    // 🍏レスポンスデータをパース(以下のJSONDecoderを使ったやり方はエラーが発生する)
+    func decodeUsersData(success: @escaping ([User]) -> Void, failure: @escaping (Error) -> Void) {
+        fetchUsers(success: { data in
+            var users = [User]()
+            do {
+                let json = try JSONDecoder().decode(User.self, from: data)
+                //                    print("jsonsの中身：\(json)")
+                users.append(json)
+                DispatchQueue.main.async {
+                    success(users)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    failure(APIError.invalidResponse)
+                }
+            }
+        }) { failure($0) }
+    }
+
+    // 🍏レスポンスデータをパース(以下のJSONSerializationを使ったやり方は成功する)
+//    func serializeUsersData(success: @escaping ([User]) -> Void, failire: @escaping (Error) -> Void) {
+//        fetchUsers(success: { data in
+//            var users = [User]()
+//            do {
+//                let jsons = try JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+//                jsons.forEach { json in
+//                    print("jsonの中身: \(json)")
+//                    let user = User(attributes: json)
+//                    users.append(user)
+//                }
+//                DispatchQueue.main.async {
+//                    success(users)
+//                }
+//                print(jsons)
+//            } catch {
+//                DispatchQueue.main.async {
+//                    failire(APIError.invalidResponse)
+//                }
+//            }
+//        }) { failire($0) }
+//    }
+
+    // gitHubユーザーのデータを取得
+    private func fetchUsers(success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
         let requestURL = URL(string: usersURL)
         guard let url = requestURL else {
             failure(APIError.invalidURL)
@@ -46,35 +87,20 @@ final class API {
         request.timeoutInterval = 10
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
+            if let error = error {  
                 DispatchQueue.main.async {
                     failure(error)
                 }
                 return
             }
-
             guard let data = data else {
                 DispatchQueue.main.async {
                     failure(APIError.unknown)
                 }
                 return
             }
-            guard let jsonOptional = try? JSONSerialization.jsonObject(with: data, options: []),
-                  let json = jsonOptional as? [[String: Any]]
-            else {
-                DispatchQueue.main.async {
-                    failure(APIError.invalidResponse)
-                }
-                return
-            }
-            var users = [User]()
-            json.forEach {
-                let user = User(attributes: $0)
-                users.append(user)
-            }
-            DispatchQueue.main.async {
-                success(users)
-            }
+            // 引数Successクロージャに渡す配列を定義
+            success(data)
         }
         task.resume()
     }

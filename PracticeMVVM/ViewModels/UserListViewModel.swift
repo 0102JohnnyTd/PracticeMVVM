@@ -28,25 +28,21 @@ final class UserListViewModel {
     let api = API()
 
     // API通信を実行してユーザーデータを取得
-    func fetchUsers() {
-        stateDidUpdate?(.loading)
-        users.removeAll()
+        func fetchUsers() {
+            stateDidUpdate?(.loading)
+            users.removeAll()
 
-        api.fetchUsers(success: { (users) in
-            self.users.append(contentsOf: users)
-            users.forEach {
-                let cellViewModel = UserCellViewModel(user: $0)
-                self.cellModels.append(cellViewModel)
-
-                // 通信完了の通知を送る
-                self.stateDidUpdate?(.finish)
+            api.decodeUsersData(success: { users in
+                users.forEach { user in
+                    self.users.append(user)
+                    let cellViewModel = UserCellViewModel(user: user)
+                    self.cellModels.append(cellViewModel)
+                }
+                    self.stateDidUpdate?(.finish)
+                }) {
+                    self.stateDidUpdate?(.error($0))
             }
-        }) {
-            // 通信失敗の通知を送る
-            self.stateDidUpdate?(.error($0))
         }
-    }
-
     // numberOfRowsInSectionで必要なアウトプット
     func usersCount() -> Int {
         users.count
