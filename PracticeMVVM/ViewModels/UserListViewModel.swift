@@ -27,21 +27,23 @@ final class UserListViewModel {
     // モデルAPIクラスのインスタンスを保持
     let api = API()
 
+    // 🍏なんのために通知するのか
     // API通信を実行してユーザーデータを取得
         func fetchUsers() {
             stateDidUpdate?(.loading)
             users.removeAll()
 
             api.decodeUsersData(success: { users in
-                users.forEach { user in
+//            api.serializeUsersData(success: { users in
+            users.forEach { user in
                     self.users.append(user)
                     let cellViewModel = UserCellViewModel(user: user)
                     self.cellModels.append(cellViewModel)
                 }
                     self.stateDidUpdate?(.finish)
-                }) {
+                }, failure: {
                     self.stateDidUpdate?(.error($0))
-            }
+            })
         }
     // numberOfRowsInSectionで必要なアウトプット
     func usersCount() -> Int {

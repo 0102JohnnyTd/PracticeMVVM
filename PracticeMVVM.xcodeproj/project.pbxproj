@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C9DD1882946C5880067103F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1CCC6DE5291506890091865E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1CCC6DE729163F950091865E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		1CCC6DEA29169F6D0091865E /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 			children = (
 				1CF41E612913A21300ED7628 /* AppDelegate.swift */,
 				1CF41E632913A21300ED7628 /* SceneDelegate.swift */,
+				1C9DD1882946C5880067103F /* MyPlayground.playground */,
 				1CCC6DF0291712FE0091865E /* Extensions */,
 				1CF41E782913EA5900ED7628 /* Models */,
 				1CCC6DF5291951DB0091865E /* Views */,

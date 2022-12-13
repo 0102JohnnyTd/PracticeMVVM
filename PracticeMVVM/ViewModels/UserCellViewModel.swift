@@ -40,8 +40,7 @@ final class UserCellViewModel {
         URL(string: user.webURL)!
     }
 
-
-    // ❓なぜ @escapingをつけるのか分からない
+    // 画像のダウンロードを実行
     func downloadImage(progress: @escaping (ImageDownloadProgress) -> Void) {
         // if isLoadingだけだとfalseならreturnするって感じになるのかな。
         if isLoading == true {
@@ -56,10 +55,10 @@ final class UserCellViewModel {
         progress(.loading(loadingImage))
 
         // 画像をダウンロード
-        imageDownloader.downloadImage(imageURL: user.iconURL, succeess: { (image) in
+        imageDownloader.downloadImage(imageURL: user.iconURL, succeess: { image in
             progress(.finish(image))
             self.isLoading = false
-        }) { (error) in
+        }) { error in
             progress(.error)
             self.isLoading = false
         }
