@@ -23,7 +23,7 @@ final class ImageDownloader {
         request.httpMethod = "GET"
 
         // 通信タスクを作成
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
             // エラーがあればそれをクロージャに渡して実行
             if let error = error {
                 DispatchQueue.main.async {

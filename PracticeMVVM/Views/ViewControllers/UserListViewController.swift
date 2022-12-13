@@ -50,19 +50,16 @@ final class UserListViewController: UIViewController {
             // 通信中はtableViewを操作不可にする
             case .loading:
                 self?.tableView.isUserInteractionEnabled = false
-                break
             // 通信完了後はtableViewを操作可能にし、更新を行う。
             case .finish:
                 self?.tableView.isUserInteractionEnabled = true
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
-                break
             // エラーが発生した場合はエラーを知らせるAlertを表示
             case .error(let error):
                 self?.tableView.isUserInteractionEnabled = true
                 self?.refreshControl.endRefreshing()
                 self?.showErrorAlert(error: error)
-                break
             }
         }
     }

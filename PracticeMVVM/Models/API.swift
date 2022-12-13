@@ -8,11 +8,11 @@
 import Foundation
 
 // コード量も増え、可読性も逆に下がりそうな気がしたのでコメントアウト
-//private enum ErrorMessage {
+// private enum ErrorMessage {
 //    static let unkwown = "不明なエラーです"
 //    static let invalidURL = "無効なURLです"
 //    static let invalidResponse = "フォーマットが無効なレスポンスを受け取りました"
-//}
+// }
 
 // エラー内容ごとにメッセージ発生時に返すメッセージを列挙
 enum APIError: Error, CustomStringConvertible {
@@ -36,30 +36,34 @@ final class API {
     // 🍏レスポンスデータをパース(以下のJSONDecoderを使ったやり方はエラーが発生する)
     func decodeUsersData(success: @escaping ([User]) -> Void, failure: @escaping (Error) -> Void) {
         fetchUsers(success: { data in
-            var users = [User]()
+            // レスポンスデータの内容を出力
+//            print(#function, data, String(data: data, encoding: .utf8)!)
             do {
-                let json = try JSONDecoder().decode(User.self, from: data)
-                //                    print("jsonsの中身：\(json)")
-                users.append(json)
+                let users = try JSONDecoder().decode([User].self, from: data)
                 DispatchQueue.main.async {
                     success(users)
                 }
             } catch {
+                print(#function, error)
                 DispatchQueue.main.async {
                     failure(APIError.invalidResponse)
                 }
             }
-        }) { failure($0) }
+        }, failure: { failure($0) })
     }
 
-    // 🍏レスポンスデータをパース(以下のJSONSerializationを使ったやり方は成功する)
+    
+    // 🍏旧式のパース
 //    func serializeUsersData(success: @escaping ([User]) -> Void, failire: @escaping (Error) -> Void) {
 //        fetchUsers(success: { data in
 //            var users = [User]()
 //            do {
+//                // なぜ配列でキャストしたのだろうか。
 //                let jsons = try JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+//                print("jsonsの中身: \(jsons)")
 //                jsons.forEach { json in
-//                    print("jsonの中身: \(json)")
+//                    // print("jsonの中身: \(json)")
+//                    // Usersモデル
 //                    let user = User(attributes: json)
 //                    users.append(user)
 //                }
@@ -86,7 +90,7 @@ final class API {
         request.httpMethod = "GET"
         request.timeoutInterval = 10
 
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {  
                 DispatchQueue.main.async {
                     failure(error)
